@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.6);
+    bottom: 100%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+.fireworks-container {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.fireworks {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
+    border-bottom: 20px solid red;
+    animation: explode 1s ease-in-out infinite;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0.1) translate(-50%, -50%);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) translate(-50%, -50%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(2.5) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    z-index: 1;
+    position: relative;
+}
